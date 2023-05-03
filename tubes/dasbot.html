@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dasbot.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+<body>
+    <div class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-flex">
+          <div class="brand-icons">
+          <span class="bx bxs-user-circle"></span>
+            <span class="bx bxs-bell-ring"></span>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-main">
+        <div class="sidebar-user">
+          <img src="images/pani.png" alt="">
+          <div>
+            <h3>Aldo Leonard</h3>
+            <span>aldo@gmail.com</span>
+          </div>
+        </div>
+
+        <div class="sidebar-menu">
+          <div class="menu-head">
+            <span>Dashboard</span>
+          </div>
+          <ul>
+           
+            <li>
+              <a href="">
+                <span class="bx bxs-bar-chart-alt-2"></span>
+                Analytics
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="bx bxs-calendar"></span>
+                Calender
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="bx bxs-user-account"></span>
+                Contacts
+              </a>
+            </li>
+            
+            <li>
+              <a href="">
+                <span class="bx bxs-envelope-open"></span>
+                Mailbox
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="bx bxs-log-out"></span>
+                LogOut
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <header>
+          <div class="header-icons">
+            <span class="bx bxs-bookmarks"></span>
+            <span class="bx bxs-message-square-dots"></span>
+            <span class="bx bx-search-alt"></span>
+          </div>
+        </span>
+      </header>
+
+      <main>
+        <div class="page-header">
+          <div>
+            <h1>Analytics Page Views</h1>
+            <small>Analytics of how many people visit this web</small>
+          </div>
+
+        
+        </div>
+
+        <div class="cards">
+          <div class="card-single">
+            <div class="card-flex">
+              <div class="card-info">
+                <div class="card-head">
+                  <span>Saat Ini</span>
+                  <small>Pengunjung Saat Ini</small>
+                </div>
+
+                <h2>287</h2>
+              </div>
+              <div class="card-chart success">
+                <span class="las la-chart-line"></span>
+              </div>
+            </div>
+          </div>
+          <div class="card-single">
+            <div class="card-flex">
+              <div class="card-info">
+                <div class="card-head">
+                  <span>Hari ini</span>
+                  <small>Pengunjung Hari Ini</small>
+                </div>
+
+                <h2>3765</h2>
+              </div>
+              <div class="card-chart danger">
+                <span class="las la-chart-line"></span>
+              </div>
+            </div>
+          </div>
+          <div class="card-single">
+            <div class="card-flex">
+              <div class="card-info">
+                <div class="card-head">
+                  <span>Kemarin</span>
+                  <small>Pengunjung Kemarin</small>
+                </div>
+
+                <h2>17428</h2>
+              </div>
+              <div class="card-chart yellow ">
+                <span class="las la-chart-line"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section>
+          <div class="block-grid">
+            <div class="graph-card">
+              <div class="graph-content">
+                <div class="graph-head">
+                  <div class="icons-wrapper">
+                    <div class="icon">
+                      <span class="las la-eye text-main"></span>
+                    </div>
+                    <div class="icon">
+                      <span class="las la-clock text-success"></span>
+                    </div>
+                  </div>
+                  <div class="graph-select">
+                    <select name="" id="">
+                      <option value="">Tahun</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="graph-board">
+                    <canvas id="revenueChart" width="500px" height="100px"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
+      <script>
+        let ctx = document.querySelector("#revenueChart");
+        ctx.height = 150;
+
+        let revChart = new Chart (ctx, {
+          type:"line",
+          data: {
+            labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+            datasets: [
+              {
+                label: "Windows",
+                borderColor: "#fff",
+                borderWidth: "2",
+                backgroundColor: "rgba(235, 247, 245, 0.5)",
+                data: [0,30,60,25,60,25,50,10,50,90,40,30]
+              },
+              {
+                label: "Mac",
+                borderColor: "#000",
+                borderWidth: "2",
+                backgroundColor: "rgba(233, 238, 253, 0.5)",
+                data: [0,60,25,100,20,75,30,55,20,60,20,55]
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            tooltip: {
+              intersect: false,
+              node: "index",
+            }
+          }
+        })
+      </script>
+    </div>
+</body>
+</html>
